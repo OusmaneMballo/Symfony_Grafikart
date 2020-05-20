@@ -2,11 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>Article | Home</title>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <h3>Liste des Pins</h3>
+        <article>
+            {% for pin in listPins %}
+                <h2>{{ pin.titre() }}</h2>
+                <p>{{ pin.description() }}</p>
+
+            {% endfor %}
+        </article>
+
     </body>
 </html>
