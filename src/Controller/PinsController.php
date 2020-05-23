@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -100,5 +101,19 @@ class PinsController extends AbstractController
         return $this->render('pins/create.html.twig',
             ['monFormulaire'=>$form->createView()]);
 
+    }
+
+    /**
+     * @Route("/pins/{id<[0-9]+>}")
+     */
+    public function show(int $id)
+    {
+        $pin=$this->repository->find($id);
+        if(is_null($pin))
+        {
+            throw $this->createNotFoundException('Oups! Pin '.$id.' not found!...');
+        }
+
+        return $this->render('pins/show.html.twig',['pin'=>$pin]);
     }
 }
