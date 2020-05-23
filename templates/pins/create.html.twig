@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Create Pin</h1>
+<!--<form action="" method="post">
+    <div>
+        <input type="hidden" name="token" value="{#{{ csrf_token('pins_token') }}#}">
+    </div>
+    <div>
+        <label for="title">Title</label><br>
+        <input type="text" id="title" name="title" required>
+    </div>
+    <div>
+        <label for="desc">Description</label><br>
+        <textarea id="desc" rows="5" cols="40" name="desc" required></textarea>
+    </div>
+    <div>
+        <input type="submit" value="Create Pin">
+    </div>
+</form>-->
+{{ form_start(monFormulaire) }}
+{{ form_widget(monFormulaire) }}
+<input type="submit" value="Create Pin">
+{{ form_end(monFormulaire) }}
+</body>
+</html>

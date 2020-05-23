@@ -5,14 +5,20 @@
         <title>Article | Home</title>
     </head>
     <body>
-        <h3>Liste des Pins</h3>
-        <article>
-            {% for pin in listPins %}
-                <h2>{{ pin.titre() }}</h2>
-                <p>{{ pin.description() }}</p>
+    <a href="{{ path('app_pins_create') }}">Create pin</a>
+    {% set x= listPins | length %}
+        <h3>All Pins({{ x }})</h3>
+        {% if listPins | length > 0 %}
+            <article>
+                {% for pin in listPins %}
+                    <h2>{{ pin.titre() }}</h2>
+                    <p>{{ pin.description() }}</p>
 
-            {% endfor %}
-        </article>
+                {% endfor %}
+            </article>
+        {% else %}
+                <p>On a pas de pin!</p>
+        {% endif %}
 
     </body>
 </html>
