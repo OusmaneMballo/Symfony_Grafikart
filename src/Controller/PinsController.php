@@ -96,7 +96,7 @@ class PinsController extends AbstractController
             //$this->em->persist($form->getData());
             $this->em->persist($pin);
             $this->em->flush();
-            return $this->redirect($this->generateUrl('app_home'));
+            return $this->redirectToRoute('app_pins_show', ['id'=>$pin->getId()]);
         }
         return $this->render('pins/create.html.twig',
             ['monFormulaire'=>$form->createView()]);
@@ -104,7 +104,7 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/{id<[0-9]+>}")
+     * @Route("/pins/{id<[0-9]+>}", name="app_pins_show")
      */
     public function show(int $id)
     {

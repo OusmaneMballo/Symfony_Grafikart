@@ -11,7 +11,9 @@
         {% if listPins | length > 0 %}
             <article>
                 {% for pin in listPins %}
-                    <h2>{{ pin.titre() }}</h2>
+                    <h2>
+                        <a href="{{ path('app_pins_show', {'id':pin.id }) }}">{{ pin.titre() }}</a>
+                    </h2>
                     <p>{{ pin.description() }}</p>
 
                 {% endfor %}
